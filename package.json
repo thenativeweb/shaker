@@ -1,0 +1,23 @@
+{
+  "name": "password",
+  "version": "0.0.1",
+  "description": "password hashes and verifies passwords in a cryptographically secure way.",
+  "author": "Golo Roden <golo.roden@thenativeweb.io> (http://www.thenativeweb.io)",
+  "main": "lib/password.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "0.4.0",
+    "grunt-contrib-jshint": "0.1.1",
+    "grunt-contrib-watch": "0.2.0",
+    "grunt-mocha-test": "0.2.0",
+    "node-assertthat": "0.0.17"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thenativeweb/password.git"
+  }
+}
