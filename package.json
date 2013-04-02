@@ -4,6 +4,7 @@
   "description": "password hashes and verifies passwords in a cryptographically secure way.",
   "author": "Golo Roden <golo.roden@thenativeweb.io> (http://www.thenativeweb.io)",
   "main": "lib/password.js",
+  "private": "true",
   "dependencies": {
   },
   "devDependencies": {

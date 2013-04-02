@@ -30,24 +30,28 @@ suite('password', function () {
   });
 
   suite('verify', function () {
-    test('returns false when password, salt and hash do not match each other.', function () {
-      var result = password.verify('secret', 'this is an invalid salt', 'this is an invalid hash');
-      assert.that(result, is.false());
+    test('returns false when password, salt and hash do not match each other.', function (done) {
+      password.verify('secret', 'this is an invalid salt', 'this is an invalid hash', function (verified) {
+        assert.that(verified, is.false());
+        done();
+      });
     });
 
     test('returns false when the password does not match the given salt and hash.', function (done) {
       password.generate('secret', function (salt, hash) {
-        var result = password.verify('another secret', salt, hash);
-        assert.that(result, is.false());
-        done();
+        password.verify('another secret', salt, hash, function (verified) {
+          assert.that(verified, is.false());
+          done();
+        });
       });
     });
 
     test('returns true when password, salt and hash match each other.', function (done) {
       password.generate('secret', function (salt, hash) {
-        var result = password.verify('secret', salt, hash);
-        assert.that(result, is.true());
-        done();
+        password.verify('secret', salt, hash, function (verified) {
+          assert.that(verified, is.true());
+          done();
+        });
       });
     });
   });
