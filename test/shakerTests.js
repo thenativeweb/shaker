@@ -21,29 +21,29 @@ suite('shaker', function () {
       });
     });
 
-    test('calculates a 64 hex-characters hash.', function (done) {
-      shaker.generate('', function (err, salt, hash) {
+    test('calculates a 64 bytes long key.', function (done) {
+      shaker.generate('', function (err, salt, key) {
         assert.that(err, is.null());
-        assert.that(hash, is.ofType('string'));
-        assert.that(/^[0-9a-f]{64}$/i.test(hash), is.true());
+        assert.that(key, is.ofType('string'));
+        assert.that(key.length, is.equalTo(64));
         done();
       });
     });
   });
 
   suite('verify', function () {
-    test('returns false when password, salt and hash do not match each other.', function (done) {
-      shaker.verify('secret', 'this is an invalid salt', 'this is an invalid hash', function (err, verified) {
+    test('returns false when password, salt and key do not match each other.', function (done) {
+      shaker.verify('secret', 'this is an invalid salt', 'this is an invalid key', function (err, verified) {
         assert.that(err, is.null());
         assert.that(verified, is.false());
         done();
       });
     });
 
-    test('returns false when the password does not match the given salt and hash.', function (done) {
-      shaker.generate('secret', function (err, salt, hash) {
+    test('returns false when the password does not match the given salt and key.', function (done) {
+      shaker.generate('secret', function (err, salt, key) {
         assert.that(err, is.null());
-        shaker.verify('another secret', salt, hash, function (err, verified) {
+        shaker.verify('another secret', salt, key, function (err, verified) {
           assert.that(err, is.null());
           assert.that(verified, is.false());
           done();
@@ -51,10 +51,10 @@ suite('shaker', function () {
       });
     });
 
-    test('returns true when password, salt and hash match each other.', function (done) {
-      shaker.generate('secret', function (err, salt, hash) {
+    test('returns true when password, salt and key match each other.', function (done) {
+      shaker.generate('secret', function (err, salt, key) {
         assert.that(err, is.null());
-        shaker.verify('secret', salt, hash, function (err, verified) {
+        shaker.verify('secret', salt, key, function (err, verified) {
           assert.that(err, is.null());
           assert.that(verified, is.true());
           done();
