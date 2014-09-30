@@ -1,24 +1,28 @@
 {
-  "name": "password",
+  "name": "shaker",
   "version": "0.0.1",
-  "description": "password hashes and verifies passwords in a cryptographically secure way.",
-  "author": "Golo Roden <golo.roden@thenativeweb.io> (http://www.thenativeweb.io)",
-  "main": "lib/password.js",
-  "private": "true",
+  "description": "shaker hashes and verifies passwords in a cryptographically secure way.",
+  "contributors": [
+    {
+      "name": "Golo Roden",
+      "email": "golo.roden@thenativeweb.io"
+    },
+    {
+      "name": "Matthias Wagler",
+      "email": "matthias.wagler@thenativeweb.io"
+    }
+  ],
+  "main": "lib/shaker.js",
   "dependencies": {
   },
   "devDependencies": {
-    "grunt": "0.4.0",
-    "grunt-contrib-jshint": "0.1.1",
-    "grunt-contrib-watch": "0.2.0",
-    "grunt-mocha-test": "0.2.0",
-    "node-assertthat": "0.0.17"
-  },
-  "scripts": {
-    "test": "mocha"
+    "grunt": "0.4.5",
+    "node-assertthat": "0.2.1",
+    "tourism": "0.7.3"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thenativeweb/password.git"
-  }
+    "url": "git://github.com/thenativeweb/shaker.git"
+  },
+  "license": "MIT"
 }
