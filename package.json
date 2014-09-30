@@ -1,7 +1,7 @@
 {
   "name": "shaker",
   "version": "0.1.0",
-  "description": "shaker hashes and verifies passwords in a cryptographically secure way.",
+  "description": "shaker hashes and verifies passwords in a cryptographically secure way using PBKDF2.",
   "contributors": [
     {
       "name": "Golo Roden",
